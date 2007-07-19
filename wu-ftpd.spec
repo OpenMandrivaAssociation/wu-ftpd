@@ -1,5 +1,5 @@
 %define version 2.6.2
-%define release %mkrel 7
+%define release %mkrel 8
 
 Summary:	An FTP daemon originally developed by Washington University
 Name:		wu-ftpd
@@ -30,6 +30,9 @@ Requires(pre):		rpm-helper
 Requires(post):     rpm-helper
 Requires(postun):   rpm-helper
 Requires(preun):    rpm-helper
+Requires(post): xinetd
+Requires(postun): xinetd
+Requires: xinetd
 Obsoletes:	BeroFTPD
 BuildRequires:	byacc
 Buildroot:	%{_tmppath}/%{name}root
