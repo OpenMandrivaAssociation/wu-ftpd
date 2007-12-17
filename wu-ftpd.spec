@@ -35,7 +35,6 @@ Requires(postun): xinetd
 Requires: xinetd
 Obsoletes:	BeroFTPD
 BuildRequires:	byacc
-Buildroot:	%{_tmppath}/%{name}root
 
 %description
 The wu-ftpd package contains the wu-ftpd FTP (File Transfer Protocol)
