@@ -1,5 +1,5 @@
 %define version 2.6.2
-%define release %mkrel 8
+%define release %mkrel 9
 
 Summary:	An FTP daemon originally developed by Washington University
 Name:		wu-ftpd
