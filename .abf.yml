@@ -1,0 +1,7 @@
+sources:
+  "ftpd.log:"	f086407dcc8d5332822d0e6c499a20616f4faaec
+  "ftp.pamd:"	d56826a22809f9a89870e1284e4aa6728feb29b4
+  "wu-ftpd-2.6.1-safer-glob.c:"	678223947525150bb92af1619e934f58423c971f
+  "wu-ftpd-2.6.2.tar.bz2:"	7750b83e1092c408246b0face3a19f4b5d15eed1
+  "wu-ftpd.service.bz2:"	f0e55b208e4f861f0c1fdf98423e417a4c7b494c
+  "wu-ftpd-xinetd:"	9a4358a628d8dae7c1a4dc87156d200a1ec9905b
