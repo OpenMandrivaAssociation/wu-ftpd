@@ -1,0 +1,113 @@
+--- wu-ftpd-2.8.0-CC4/build.rh~	2011-10-21 00:58:08.000000000 +0200
++++ wu-ftpd-2.8.0-CC4/build	2012-12-06 23:54:18.783017761 +0100
+@@ -169,26 +169,26 @@ case $maketarget in
+         echo ''
+         echo "Making support library."
+         cd ../support
+-        make $makeargs $makeopts libsupport.a
++        make "RPM_OPT_FLAGS=$RPM_OPT_FLAGS" $makeargs $makeopts libsupport.a
+         echo ''
+         echo "Making ftpd."
+         cd ../src
+-        make $makeargs $makeopts  ftpd
++        make "RPM_OPT_FLAGS=$RPM_OPT_FLAGS" $makeargs $makeopts  ftpd
+         echo ''
+         echo "Making ftpcount."
+-        make $makeargs $makeopts  ftpcount
++        make "RPM_OPT_FLAGS=$RPM_OPT_FLAGS" $makeargs $makeopts  ftpcount
+         echo ''
+         echo "Making ftpshut".
+-        make $makeargs $makeopts  ftpshut
++        make "RPM_OPT_FLAGS=$RPM_OPT_FLAGS" $makeargs $makeopts  ftpshut
+         echo ''
+         echo "Making ftprestart".
+-        make $makeargs $makeopts  ftprestart
++        make "RPM_OPT_FLAGS=$RPM_OPT_FLAGS" $makeargs $makeopts  ftprestart
+         echo ''
+         echo "Making ckconfig."
+-        make $makeargs $makeopts  ckconfig
++        make "RPM_OPT_FLAGS=$RPM_OPT_FLAGS" $makeargs $makeopts  ckconfig
+         echo ''
+         echo "Making privatepw."
+-        make $makeargs $makeopts  privatepw
++        make "RPM_OPT_FLAGS=$RPM_OPT_FLAGS" $makeargs $makeopts  privatepw
+         cd ..
+ 
+         if [ ! -d bin ] ;  then    mkdir bin;        fi
+--- wu-ftpd-2.8.0-CC4/rhsconfig/ftpaccess.rh~	2012-12-06 23:54:18.783017761 +0100
++++ wu-ftpd-2.8.0-CC4/rhsconfig/ftpaccess	2012-12-06 23:54:18.783017761 +0100
+@@ -0,0 +1,24 @@
++class   all   real,guest,anonymous  *
++
++email root@localhost
++
++loginfails 5
++
++readme  README*    login
++readme  README*    cwd=*
++
++message /welcome.msg            login
++message .message                cwd=*
++
++compress        yes             all
++tar             yes             all
++chmod		no		guest,anonymous
++delete		no		guest,anonymous
++overwrite	no		guest,anonymous
++rename		no		guest,anonymous
++
++log transfers anonymous,real inbound,outbound
++
++shutdown /etc/shutmsg
++
++passwd-check rfc822 warn
+--- wu-ftpd-2.8.0-CC4/rhsconfig/ftpconversions.rh~	2012-12-06 23:54:18.783017761 +0100
++++ wu-ftpd-2.8.0-CC4/rhsconfig/ftpconversions	2012-12-06 23:54:18.783017761 +0100
+@@ -0,0 +1,7 @@
++ :.Z:  :  :/bin/compress -d -c %s:T_REG|T_ASCII:O_UNCOMPRESS:UNCOMPRESS
++ :   : :.Z:/bin/compress -c %s:T_REG:O_COMPRESS:COMPRESS
++ :.gz: :  :/bin/gzip -cd %s:T_REG|T_ASCII:O_UNCOMPRESS:GUNZIP
++ :   : :.gz:/bin/gzip -9 -c %s:T_REG:O_COMPRESS:GZIP
++ :   : :.tar:/bin/tar -c -f - %s:T_REG|T_DIR:O_TAR:TAR
++ :   : :.tar.Z:/bin/tar -c -Z -f - %s:T_REG|T_DIR:O_COMPRESS|O_TAR:TAR+COMPRESS
++ :   : :.tar.gz:/bin/tar -c -z -f - %s:T_REG|T_DIR:O_COMPRESS|O_TAR:TAR+GZIP
+--- wu-ftpd-2.8.0-CC4/rhsconfig/ftpgroups.rh~	2012-12-06 23:54:18.783017761 +0100
++++ wu-ftpd-2.8.0-CC4/rhsconfig/ftpgroups	2012-12-06 23:54:18.783017761 +0100
+@@ -0,0 +1 @@
++# test:ENCRYPTED PASSWORD HERE:archive
+--- wu-ftpd-2.8.0-CC4/rhsconfig/ftphosts.rh~	2012-12-06 23:54:18.783017761 +0100
++++ wu-ftpd-2.8.0-CC4/rhsconfig/ftphosts	2012-12-06 23:54:18.783017761 +0100
+@@ -0,0 +1,5 @@
++# Example host access file
++#
++# Everything after a '#' is treated as comment,
++# empty lines are ignored
++
+--- wu-ftpd-2.8.0-CC4/rhsconfig/ftpusers.rh~	2012-12-06 23:54:18.783017761 +0100
++++ wu-ftpd-2.8.0-CC4/rhsconfig/ftpusers	2012-12-06 23:54:18.783017761 +0100
+@@ -0,0 +1,14 @@
++root
++bin
++daemon
++adm
++lp
++sync
++shutdown
++halt
++mail
++news
++uucp
++operator
++games
++nobody
+--- wu-ftpd-2.8.0-CC4/src/pathnames.h.in.rh~	2011-10-21 00:58:10.000000000 +0200
++++ wu-ftpd-2.8.0-CC4/src/pathnames.h.in	2012-12-06 23:54:40.613199882 +0100
+@@ -38,7 +38,7 @@
+ #  define LASTLOG_DIR     "/usr/adm"
+ #endif /* !(defined(SOLARIS_2)) */ 
+ 
+-#define _PATH_EXECPATH  "/bin/ftp-exec"
++#define _PATH_EXECPATH  "/usr/bin/ftp-exec"
+ 
+ #if defined(VIRTUAL)
+ /*

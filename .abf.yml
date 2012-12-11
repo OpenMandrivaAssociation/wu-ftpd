@@ -1,7 +1,13 @@
 sources:
-  "ftpd.log:"	f086407dcc8d5332822d0e6c499a20616f4faaec
-  "ftp.pamd:"	d56826a22809f9a89870e1284e4aa6728feb29b4
-  "wu-ftpd-2.6.1-safer-glob.c:"	678223947525150bb92af1619e934f58423c971f
-  "wu-ftpd-2.6.2.tar.bz2:"	7750b83e1092c408246b0face3a19f4b5d15eed1
-  "wu-ftpd.service.bz2:"	f0e55b208e4f861f0c1fdf98423e417a4c7b494c
-  "wu-ftpd-xinetd:"	9a4358a628d8dae7c1a4dc87156d200a1ec9905b
+  wu-ftpd-2.6.0-nonrootfix.patch.bz2: db943dd1b64148e37b4a485a572964491b1614b6
+  wu-ftpd-2.6.0-owners.patch.bz2: 2bab92647fbe1101b66291af352de4a5a8a1cb45
+  wu-ftpd-2.6.0-redhat.patch.bz2: 3643b3809efdaa9ab53cc8b20c1d70de3c806504
+  wu-ftpd-2.6.1-fixinternalls.patch.bz2: 7cf886af2f11ecfc465e203b06fc8462b0ae87f8
+  wu-ftpd-2.6.1-pasv-port-allow-correction.patch.bz2: feb10b477ff33d39f6d23150b2509b10048b37c2
+  wu-ftpd-2.6.1-privatepw.patch.bz2: e2a7e0a8aa0415cc8e7418a0afa1416c1a226847
+  wu-ftpd-2.6.2-compilefix.patch.bz2: 31b649628620f3b43554a00a67f4e67d31db0dca
+  wu-ftpd-2.6.2-compilefix_sprintf.patch.bz2: 20f09de31b6ff19ae19a52e1d0b7dc64a8cb2bae
+  wu-ftpd-2.6.2-realpatch.patch.bz2: bb5686ec77528698fce9e74d6ad41a6d853503a5
+  wu-ftpd-2.6.2.tar.bz2: 7750b83e1092c408246b0face3a19f4b5d15eed1
+  wu-ftpd-2.8.0-CC4.tar.gz: 07cd3c9e3d3c82be9799da972499d25837950880
+  wu-ftpd.service.bz2: f0e55b208e4f861f0c1fdf98423e417a4c7b494c

@@ -1,0 +1,11 @@
+--- wu-ftpd-2.8.0-CC4/src/ftpd.c.portcorr~	2012-01-08 00:23:57.000000000 +0100
++++ wu-ftpd-2.8.0-CC4/src/ftpd.c	2012-12-06 23:56:58.911350170 +0100
+@@ -8582,7 +8582,7 @@ int port_allowed(char *remoteaddr)
+     int which;
+     struct aclmember *entry = NULL;
+     (void) acl_getclass(class, sizeof(class));
+-    while (getaclentry("port-allow", &entry)) {
++    while (getaclentry("pasv-allow", &entry)) {
+ 	if ((ARG0 != NULL) && (strcasecmp(class, ARG0) == 0))
+ 	    for (which = 1; (which < MAXARGS) && (ARG[which] != NULL); which++) {
+ 		if (hostmatch(ARG[which], remoteaddr, NULL))
