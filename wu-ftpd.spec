@@ -2,7 +2,7 @@
 Summary:	An FTP daemon originally developed by Washington University
 Name:		wu-ftpd
 Version:	2.8.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		System/Servers
 Source0:	http://www.wfms.org/wu-ftpd/wu-ftpd-%version-%ccver.tar.gz
