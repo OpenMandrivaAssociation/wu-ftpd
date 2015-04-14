@@ -28,6 +28,7 @@ Requires(postun): xinetd
 Requires: xinetd
 Obsoletes:	BeroFTPD < 1.4.0
 BuildRequires:	byacc
+BuildRequires:	openssl-static-devel
 
 %description
 The wu-ftpd package contains the wu-ftpd FTP (File Transfer Protocol)
@@ -144,15 +145,15 @@ fi
 - fix Prereq
 - rename logrotate file
 
-* Thu Jun 02 2005 Nicolas Lécureuil <neoclust@mandriva.org> 2.6.2-6mdk
+* Thu Jun 02 2005 Nicolas LÃ©cureuil <neoclust@mandriva.org> 2.6.2-6mdk
 - Rebuild
 
-* Fri Aug 01 2003 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 2.6.2-5mdk
+* Fri Aug 01 2003 Per Ã˜yvind Karlsen <peroyvind@linux-mandrake.com> 2.6.2-5mdk
 - enable more features
 - bugfix CAN-2003-0466 off-by-one (P7)
 - prereq on rpm-helper (only;)
 
-* Fri Aug 01 2003 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 2.6.2-4mdk
+* Fri Aug 01 2003 Per Ã˜yvind Karlsen <peroyvind@linux-mandrake.com> 2.6.2-4mdk
 - rebuild
 - macroize
 - fix build (P200)
