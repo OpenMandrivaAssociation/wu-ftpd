@@ -6,7 +6,7 @@ Release:	2
 License:	BSD
 Group:		System/Servers
 Source0:	http://www.wfms.org/wu-ftpd/wu-ftpd-%version-%ccver.tar.gz
-URL:		http://www.wfms.org/wu-ftpd
+URL:		https://www.wfms.org/wu-ftpd
 
 Source1:	ftpd.log
 Source2:	ftp.pamd
