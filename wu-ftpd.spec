@@ -27,6 +27,11 @@ Requires(post): xinetd
 Requires(postun): xinetd
 Requires: xinetd
 Obsoletes:	BeroFTPD < 1.4.0
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	byacc
 BuildRequires:	openssl-static-devel
 
